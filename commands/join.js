@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, UserSelectMenuInteraction } = require ('discord.js');
+const { SlashCommandBuilder, EmbedBuilder, UserSelectMenuInteraction } = require ('discord.js');
 const fs = require('node:fs');
 
 module.exports = {
@@ -14,22 +14,32 @@ module.exports = {
 
         let found = false;
         for (let j = 0; j < players.length; j++) {
-
-            //如果有就修改該玩家的 money 並回覆結果
-            if (players[j].id == collected.user.id) {
+            if (players[j].id == interaction.user.id) {
                 found = true;
                 const embed = new EmbedBuilder()
-                    .serColo
+                    .setColor('Red')
+                    .setDescription('You are already in...');
+                await interaction.reply({ embeds: [embed], ephemeral: true });
             }
         }
 
         if (found == false) {
-            players.push({ id: interaction.user.id, money: 500 });
-            const resultEmbed = new EmbedBuilder()
-                .setColor('#5865F2')
-                .setTitle('剪刀石頭布！')
-                .setDescription(`結果：${earnings}元\n你現在有 ${500 + earnings} 元!`);
-            collected.update({ embeds: [resultEmbed], components: [] });
+            players.push({ 
+                id: interaction.user.id, 
+                name: interaction.user.name,
+                avatar: interaction.user.avatar,
+                quit: false,
+                cards:[],
+            });
+            const playerCount = players.length;
+            const embed = new EmbedBuilder()
+                .setColor('Green')
+                .setTitle('You are in!')
+                .setDescription(`Waiting ${playerCount} / 4`);
+            await interaction.reply({ embeds: [embed] });
         }
+
+        const json = JSON.stringify(players, null, '\0');
+        fs.writeFileSync('players.json', json);
     }
 };
