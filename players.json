@@ -1,14 +1,23 @@
 [
 {
-"id": "611134266109198366",
-"avatar": "fa3073ca00bebb5faefa9d23520ddda8",
-"quit": false,
+"id": "1050412557413924955",
+"username": "test user",
+"avatar": "https://cdn.discordapp.com/avatars/1050412557413924955/null.png",
+"inGame": false,
 "cards": []
 },
 {
-"id": "1050412557413924955",
-"avatar": null,
-"quit": false,
+"id": "538003001282002956",
+"username": "marija7414",
+"avatar": "https://cdn.discordapp.com/avatars/538003001282002956/59559e8e5670e2db96aaa8582c7367bc.png",
+"inGame": false,
+"cards": []
+},
+{
+"id": "611134266109198366",
+"username": "d0g3ba11",
+"avatar": "https://cdn.discordapp.com/avatars/611134266109198366/fa3073ca00bebb5faefa9d23520ddda8.png",
+"inGame": false,
 "cards": []
 }
 ]

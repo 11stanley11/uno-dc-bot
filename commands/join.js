@@ -1,6 +1,11 @@
 const { SlashCommandBuilder, EmbedBuilder, UserSelectMenuInteraction } = require ('discord.js');
 const fs = require('node:fs');
 
+function addBracket ( input ) {
+    const output = '`' + input + '`';
+    return output;
+}
+
 module.exports = {
     data: new SlashCommandBuilder()
             .setName('join')
@@ -17,28 +22,32 @@ module.exports = {
             if (players[j].id == interaction.user.id) {
                 found = true;
                 const embed = new EmbedBuilder()
-                    .setColor('Red')
                     .setDescription('You are already in...');
                 await interaction.reply({ embeds: [embed], ephemeral: true });
             }
         }
 
         if (found == false) {
-            players.push({ 
-                id: interaction.user.id, 
-                name: interaction.user.name,
-                avatar: interaction.user.avatar,
-                quit: false,
-                cards:[],
-            });
-            const playerCount = players.length;
-            const embed = new EmbedBuilder()
-                .setColor('Green')
-                .setTitle('You are in!')
-                .setDescription(`Waiting ${playerCount} / 4`);
-            await interaction.reply({ embeds: [embed] });
+            if (players.length == 4) {
+                const embed = new EmbedBuilder()
+                .setDescription('Already reached max players');
+            }else{
+                players.push({ 
+                    id: interaction.user.id, 
+                    username: interaction.user.username,
+                    avatar: 'https://cdn.discordapp.com/avatars/' + 
+                            interaction.user.id + '/' +  
+                            interaction.user.avatar + '.png',
+                    inGame: false,
+                    cards:[],
+                });
+                const playerCount = addBracket(players.length + '/4');
+                const embed = new EmbedBuilder()
+                    .setTitle('You are in')
+                    .setDescription(`Waiting ${playerCount}`);
+                await interaction.reply({ embeds: [embed] });
+            }
         }
-
         const json = JSON.stringify(players, null, '\0');
         fs.writeFileSync('players.json', json);
     }
