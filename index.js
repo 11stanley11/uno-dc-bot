@@ -1,6 +1,6 @@
 // 如果你搞爛東西，可以參考這個檔案
 
-const { REST, Routes, Collection, Client, GatewayIntentBits } = require("discord.js");
+const { REST, Routes, Collection, Client, GatewayIntentBits, ActivityType } = require("discord.js");
 const fs = require("fs");
 
 // 載入 .env 檔案裡面的環境變數
@@ -62,6 +62,10 @@ function loadAllCommands(client, directory) {
         .catch(console.error);
 }
 
+client.on("ready", () => {
+    //console.log(`${client.user.tag} 已上線！`);
+    client.user.setActivity('/help',{ type: ActivityType.Playing });
+});
 /*
 const { Client, GatewayIntentBits } = require("discord.js");
 const observe = require("./dashboard/observe");
