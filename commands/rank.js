@@ -11,7 +11,7 @@ module.exports = {
         .setName('rank')
         .setDescription('search for your rank'),
     async execute(client, interaction) {
-        const scoredata = fs.readFileSync('score.json');
+        const scoredata = fs.readFileSync('data/score.json');
         const score = JSON.parse(scoredata);
 
         let found = false;

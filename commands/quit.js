@@ -14,10 +14,10 @@ module.exports = {
     async execute(client, interaction) {
         console.log(interaction.user);
 
-        const playerdata = fs.readFileSync('players.json');
+        const playerdata = fs.readFileSync('data/players.json');
         const players = JSON.parse(playerdata);
 
-        const gameInfodata = fs.readFileSync('gameInfo.json');
+        const gameInfodata = fs.readFileSync('data/gameInfo.json');
         const gameInfo = JSON.parse(gameInfodata);
 
         let found = false;
@@ -87,7 +87,7 @@ module.exports = {
                         if (yes >= 3) {
                             gameInfo.quit = true;
                             const gamejson = JSON.stringify(gameInfo, null, 2);
-                            fs.writeFileSync('gameInfo.json', gamejson);
+                            fs.writeFileSync('data/gameInfo.json', gamejson);
                         }
                     });
                 }  
@@ -102,6 +102,6 @@ module.exports = {
         }
 
         const json = JSON.stringify(players, null, 2);
-        fs.writeFileSync('players.json', json);
+        fs.writeFileSync('data/players.json', json);
     }
 };

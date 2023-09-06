@@ -48,10 +48,10 @@ module.exports = {
     async execute(client, interaction) {
         console.log(interaction.user);
 
-        const playersdata = fs.readFileSync('players.json');
+        const playersdata = fs.readFileSync('data/players.json');
         const players = JSON.parse(playersdata);
 
-        const gamedata = fs.readFileSync('players.json');
+        const gamedata = fs.readFileSync('data/gameInfo.json');
         let gameInfo = JSON.parse(gamedata);
 
         let pi = -1; //playerIndex
@@ -97,12 +97,12 @@ module.exports = {
         }
 
         const playersjson = JSON.stringify(players, null, 2);
-        fs.writeFileSync('players.json', playersjson);
+        fs.writeFileSync('data/players.json', playersjson);
 
         if (pi != -1) {
             const checkInterval1 = setInterval(async () => {
                 
-                const playersdata = fs.readFileSync('players.json');
+                const playersdata = fs.readFileSync('data/players.json');
                 const players = JSON.parse(playersdata);
 
                 console.log(`${interaction.user.id} in loop`);
@@ -167,19 +167,19 @@ module.exports = {
                         await interaction.followUp({ embeds: [startEmbed]});
 
                         const playersjson = JSON.stringify(players, null, 2);
-                        fs.writeFileSync('players.json', playersjson); 
+                        fs.writeFileSync('data/players.json', playersjson); 
 
                         const gamejson = JSON.stringify(gameInfo, null, 2);
-                        fs.writeFileSync('gameInfo.json', gamejson);
+                        fs.writeFileSync('data/gameInfo.json', gamejson);
                     }
  
                     let roundTemp;
                     const checkInterval2 = setInterval(async () => { 
 
-                        const playersdata = fs.readFileSync('players.json');
+                        const playersdata = fs.readFileSync('data/players.json');
                         let players = JSON.parse(playersdata);
 
-                        const gamedata = fs.readFileSync('gameInfo.json');
+                        const gamedata = fs.readFileSync('data/gameInfo.json');
                         let gameInfo = JSON.parse(gamedata);
                         
                         if (gameInfo.round != roundTemp) {
@@ -187,7 +187,7 @@ module.exports = {
                             if(pi == 3){
                                 //clearInterval(checkInterval2); //tempararily
     
-                                const playersdata = fs.readFileSync('players.json');
+                                const playersdata = fs.readFileSync('data/players.json');
                                 const players = JSON.parse(playersdata);
     
                                 order_arrow = '►';
@@ -436,10 +436,10 @@ module.exports = {
 
                                                     console.log('collector end');
                                                     const playersjson = JSON.stringify(players, null, 2);
-                                                    fs.writeFileSync('players.json', playersjson); 
+                                                    fs.writeFileSync('data/players.json', playersjson); 
                             
                                                     const gamejson = JSON.stringify(gameInfo, null, 2);
-                                                    fs.writeFileSync('gameInfo.json', gamejson);
+                                                    fs.writeFileSync('data/gameInfo.json', gamejson);
                                                 });
                                                 
                                                 
@@ -475,10 +475,10 @@ module.exports = {
 
                                         console.log('collector end');
                                         const playersjson = JSON.stringify(players, null, 2);
-                                        fs.writeFileSync('players.json', playersjson); 
+                                        fs.writeFileSync('data/players.json', playersjson); 
                 
                                         const gamejson = JSON.stringify(gameInfo, null, 2);
-                                        fs.writeFileSync('gameInfo.json', gamejson);
+                                        fs.writeFileSync('data/gameInfo.json', gamejson);
                                     }
                                 });
                             }else{ //not your turn
@@ -591,7 +591,7 @@ module.exports = {
     
                                     await interaction.followUp({ embeds: [endEmbed] })
 
-                                    const scoredata = fs.readFileSync('score.json');
+                                    const scoredata = fs.readFileSync('data/score.json');
                                     let score = JSON.parse(scoredata);
                                     
                                     for (let rankplayer of rankplayers) {
@@ -635,13 +635,13 @@ module.exports = {
                                     score = new_score;
                                     
                                     const playersjson = JSON.stringify(players, null, 2);
-                                    fs.writeFileSync('players.json', playersjson); 
+                                    fs.writeFileSync('data/players.json', playersjson); 
             
                                     const gamejson = JSON.stringify(gameInfo, null, 2);
-                                    fs.writeFileSync('gameInfo.json', gamejson);
+                                    fs.writeFileSync('data/gameInfo.json', gamejson);
 
                                     const scorejson = JSON.stringify(score, null, 2);
-                                    fs.writeFileSync('score.json', scorejson);
+                                    fs.writeFileSync('data/score.json', scorejson);
 
                                     process.exit(0);
                                 }
@@ -660,10 +660,10 @@ module.exports = {
                             gameInfo = {};
 
                             const playersjson = JSON.stringify(players, null, 2);
-                            fs.writeFileSync('players.json', playersjson); 
+                            fs.writeFileSync('data/players.json', playersjson); 
     
                             const gamejson = JSON.stringify(gameInfo, null, 2);
-                            fs.writeFileSync('gameInfo.json', gamejson);
+                            fs.writeFileSync('data/gameInfo.json', gamejson);
 
                             c
 

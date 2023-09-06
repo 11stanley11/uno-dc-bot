@@ -6,7 +6,7 @@ module.exports = {
         .setName('podium')
         .setDescription('see who is on the podium'),
     async execute (client, interaction) {
-        const scoredata = fs.readFileSync('score.json');
+        const scoredata = fs.readFileSync('data/score.json');
         const score = JSON.parse(scoredata);
 
         if (score.length == 0) {
