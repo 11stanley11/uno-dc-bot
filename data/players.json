@@ -1,1 +1,122 @@
-[]
+[
+  {
+    "id": "611134266109198366",
+    "username": "d0g3ba11",
+    "avatar": "https://cdn.discordapp.com/avatars/611134266109198366/4322e3c2bad13ea11e084ecf358d80aa.png",
+    "cards": [
+      {
+        "color": "Grey",
+        "type": "2"
+      },
+      {
+        "color": "Grey",
+        "type": "4"
+      },
+      {
+        "color": "Grey",
+        "type": "6"
+      },
+      {
+        "color": "Green",
+        "type": "2"
+      },
+      {
+        "color": "Red",
+        "type": "3"
+      }
+    ]
+  },
+  {
+    "id": "607510676180697108",
+    "username": "pathetic4397",
+    "avatar": "https://cdn.discordapp.com/avatars/607510676180697108/a0df7b14dead9ad8e0dc5a5647b4b86b.png",
+    "cards": [
+      {
+        "color": "Blue",
+        "type": "1"
+      },
+      {
+        "color": "Green",
+        "type": "4"
+      },
+      {
+        "color": "Red",
+        "type": "3"
+      },
+      {
+        "color": "Red",
+        "type": "3"
+      }
+    ]
+  },
+  {
+    "id": "1050412557413924955",
+    "username": "test user",
+    "avatar": "https://cdn.discordapp.com/avatars/1050412557413924955/14f6703c9104620680374ecbdd71f7ce.png",
+    "cards": [
+      {
+        "color": "Blue",
+        "type": "5"
+      },
+      {
+        "color": "Grey",
+        "type": "7"
+      },
+      {
+        "color": "Green",
+        "type": "3"
+      },
+      {
+        "color": "Green",
+        "type": "reverse"
+      },
+      {
+        "color": "Red",
+        "type": "7"
+      }
+    ]
+  },
+  {
+    "id": "568747483040055308",
+    "username": "caesar_chiyan",
+    "avatar": "https://cdn.discordapp.com/avatars/568747483040055308/9fc9dc5bc17477ec5259567b5123b648.png",
+    "cards": [
+      {
+        "color": "Blue",
+        "type": "6"
+      },
+      {
+        "color": "Blue",
+        "type": "9"
+      },
+      {
+        "color": "Grey",
+        "type": "skip"
+      },
+      {
+        "color": "Green",
+        "type": "0"
+      },
+      {
+        "color": "Green",
+        "type": "0"
+      },
+      {
+        "color": "Green",
+        "type": "0"
+      },
+      {
+        "color": "Green",
+        "type": "2"
+      },
+      {
+        "color": "Green",
+        "type": "3"
+      },
+      {
+        "color": "Red",
+        "type": "8"
+      }
+    ]
+  }
+]

@@ -46,7 +46,7 @@ module.exports = {
         .setDescription('join game'),
 
     async execute(client, interaction) {
-        console.log(interaction.user);
+        //console.log(interaction.user);
 
         const playersdata = fs.readFileSync('data/players.json');
         const players = JSON.parse(playersdata);
@@ -92,7 +92,7 @@ module.exports = {
                 await interaction.reply({ embeds: [embed] });
 
                 pi = players.length - 1;
-                console.log(pi);
+                //console.log(pi);
             }
         }
 
@@ -105,7 +105,7 @@ module.exports = {
                 const playersdata = fs.readFileSync('data/players.json');
                 const players = JSON.parse(playersdata);
 
-                console.log(`${interaction.user.id} in loop`);
+                //console.log(`${interaction.user.id} in loop`);
 
                 let playerQuit = true;
                 for(let i = 0; i < players.length; i++) {
@@ -220,10 +220,10 @@ module.exports = {
                                     );
                                 await interaction.followUp({ embeds: [UIEmbed] });
                             }else{
-                                console.log('sleep');
+                                //console.log('sleep');
                                 let sleep = async (ms) => await new Promise(r => setTimeout(r,ms));
                                 await sleep(1000);
-                                console.log('sleep end');
+                                //console.log('sleep end');
                             }
     
                             if(gameInfo.players_order[0] === interaction.user.id) { //your turn
@@ -319,7 +319,7 @@ module.exports = {
     
                                     const answerEmbed = new EmbedBuilder().setTitle('Choice:');
                                     let answerRow = new ActionRowBuilder();
-                                    for (let button of buttons) { 
+                                    for (let button of buttons) {
                                         if (button.data.custom_id === pressed) answerRow.addComponents(button);
                                     }
     
@@ -414,7 +414,7 @@ module.exports = {
 
                                                     gameInfo.turn = gameInfo.order_clockwise ? gameInfo.turn+1 : gameInfo.turn-1; 
 
-                                                    console.log(`${nextCardColor}${nextCardType}`);
+                                                    //console.log(`${nextCardColor}${nextCardType}`);
 
                                                     sortCards(players, pi);
 
@@ -434,7 +434,7 @@ module.exports = {
                                                         }
                                                     }
 
-                                                    console.log('collector end');
+                                                    //console.log('collector end');
                                                     const playersjson = JSON.stringify(players, null, 2);
                                                     fs.writeFileSync('data/players.json', playersjson); 
                             
@@ -453,7 +453,7 @@ module.exports = {
                                     if(nextCardColor != "None") {
                                         gameInfo.turn = gameInfo.order_clockwise ? gameInfo.turn+1 : gameInfo.turn-1; 
 
-                                        console.log(`${nextCardColor}${nextCardType}`);
+                                        //console.log(`${nextCardColor}${nextCardType}`);
 
                                         sortCards(players, pi);
 
@@ -473,7 +473,7 @@ module.exports = {
                                             }
                                         }
 
-                                        console.log('collector end');
+                                        //console.log('collector end');
                                         const playersjson = JSON.stringify(players, null, 2);
                                         fs.writeFileSync('data/players.json', playersjson); 
                 
@@ -533,7 +533,7 @@ module.exports = {
                                                     .setLabel(label)
                                                     .setStyle(style)
                                                     .setDisabled(disable));
-                                    console.log(idCounter);
+                                    //console.log(idCounter);
                                     idCounter++;
                                 }
     
@@ -558,7 +558,7 @@ module.exports = {
                             for (let player of players) {
                                 if (player.cards.length === 0) {
                                     clearInterval(checkInterval2);
-                                    console.log("game finsihed")
+                                    //console.log("game finsihed")
 
                                     let index, min;
                                     let rankplayers = [];
@@ -570,7 +570,7 @@ module.exports = {
                                                 min = players[j].cards.length;
                                             }
                                         }
-                                        console.log(index);
+                                        //console.log(index);
                                         rankplayers.push(players[index]);
                                         players.splice(index, 1);
                                     }
@@ -628,7 +628,7 @@ module.exports = {
                                                 min1 = score[j].cardsLeft.avg;
                                             }
                                         }
-                                        console.log(index1);
+                                        //console.log(index1);
                                         new_score.push(score[index]);
                                         score.splice(index1, 1);
                                     }
