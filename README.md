@@ -1,4 +1,4 @@
-# Discord Bot Template
+# UNO Discord Bot
 
 ## 開始使用
 
