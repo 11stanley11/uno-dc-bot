@@ -119,7 +119,7 @@ module.exports = {
                     //give cards
                     for(let i = 0; i < players.length; i++) {
                         pushRanCards(players, i, 8);
-                        sortCards(players, i);
+                        sortCards(players, i, 8);
                     }
 
                     if (pi == 3) {
@@ -315,17 +315,19 @@ module.exports = {
                                 collector.on('collect', async collected => {
     
                                     const pressed = collected.customId;
-                                    console.log(pressed);
     
                                     const answerEmbed = new EmbedBuilder().setTitle('Choice:');
                                     let answerRow = new ActionRowBuilder();
                                     for (let button of buttons) {
                                         if (button.data.custom_id === pressed) answerRow.addComponents(button);
                                     }
-    
-                                    collected.update({ embeds: [answerEmbed], components: [answerRow] });
-                                    collector.stop();
 
+                                    console.log(pi);
+                                    console.log(pressed);
+                                    if (pressed != 'draw') {    
+                                        console.log(players[pi].cards[pressed].color)
+                                        console.log(players[pi].cards[pressed].type)
+                                    }
                                     let nextCardColor = pressed === 'draw' ? gameInfo.card.color : players[pi].cards[pressed].color;
                                     let nextCardType = pressed === 'draw' ? gameInfo.card.type : players[pi].cards[pressed].type;
                                 
@@ -480,6 +482,9 @@ module.exports = {
                                         const gamejson = JSON.stringify(gameInfo, null, 2);
                                         fs.writeFileSync('data/gameInfo.json', gamejson);
                                     }
+                                    
+                                    collected.update({ embeds: [answerEmbed], components: [answerRow] });
+                                    collector.stop();
                                 });
                             }else{ //not your turn
                                 const buttons = [];
@@ -664,8 +669,6 @@ module.exports = {
     
                             const gamejson = JSON.stringify(gameInfo, null, 2);
                             fs.writeFileSync('data/gameInfo.json', gamejson);
-
-                            c
 
                             process.exit(0);
                         }

@@ -22,7 +22,7 @@ module.exports = {
                     .setTitle('Your data')
                     .setDescription(`<@${player.id}>`)
                     .addFields(
-                        { name: 'Rank:', value: `${addBracket(score.indexOf(player))}`, inline: true },
+                        { name: 'Rank:', value: `${addBracket(score.indexOf(player) + 1)}`, inline: true },
                         { name: 'Games played:', value: `${addBracket(player.gamesPlayed)}`, inline: true },
                         { name: 'Average Cards Left:', value: `${addBracket(player.cardsLeft.avg)}`, inline: true },
                     )

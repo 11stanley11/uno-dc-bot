@@ -1,1 +1,29 @@
-[]
+[
+    {
+        "id": "611134266109198366",
+        "username": "d0g3ba11",
+        "gamesPlayed": 2,
+        "cardsLeft":{
+            "total": 2,
+            "avg": 1
+        }
+    },
+    {
+        "id": "990268196521140237",
+        "username": "koalawill",
+        "gamesPlayed": 2,
+        "cardsLeft":{
+            "total": 10,
+            "avg": 5
+        }
+    },
+    {
+        "id": "622652918478405633",
+        "username": "lucaskao1221",
+        "gamesPlayed": 2,
+        "cardsLeft":{
+            "total": 20,
+            "avg": 10
+        }
+    }
+]
